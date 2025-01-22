@@ -18,10 +18,9 @@ export interface AddProduct {
   productDescription: string;
   productPrice: number;
   productTotalStockQty: number;
-  image: null;
+  productImageUrl?: string;
   categoryId: string;
 }
-
 const initialState: InititalState = {
   orders: [],
   products: [],
@@ -211,7 +210,7 @@ export function addCategory(data: { categoryName: string }) {
     dispatch(setStatus(Status.LOADING));
     try {
       const response = await APIAuthenticated.post('/admin/category', data);
-      if (response.status === 200) {
+      if (response.status === 201) {
         dispatch(setStatus(Status.SUCCESS));
         setCategories(response.data.data);
       } else {

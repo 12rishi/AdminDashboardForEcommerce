@@ -13,7 +13,7 @@ export interface Product {
   productDescription: string;
   productPrice: number;
   productTotalStockQty: number;
-  productImageUrl: string;
+  productImageUrl?: string;
   createdAt?: string;
   updatedAt?: string;
   userId: string;
