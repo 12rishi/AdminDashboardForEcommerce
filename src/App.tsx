@@ -19,14 +19,15 @@ import DefaultLayout from './layout/DefaultLayout';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import AddCategory from './pages/Form/AddCategory';
-// import SingleOrder from './pages/SingleOrder';
-// import { io } from 'socket.io-client';
+import SingleOrder from './pages/SingleOrder';
 
-// export const socket = io('http://localhost:3000', {
-//   auth: {
-//     token: localStorage.getItem('token'),
-//   },
-// });
+import { io } from 'socket.io-client';
+
+export const socket = io('http://localhost:3000', {
+  auth: {
+    token: localStorage.getItem('token'),
+  },
+});
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -121,7 +122,7 @@ function App() {
             </>
           }
         />
-        {/* <Route
+        <Route
           path="/order/:id"
           element={
             <>
@@ -131,7 +132,7 @@ function App() {
               </DefaultLayout>
             </>
           }
-        /> */}
+        />
         <Route
           path="/settings"
           element={
